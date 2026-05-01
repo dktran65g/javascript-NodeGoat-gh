@@ -1,0 +1,27 @@
+{
+  "patches": {
+    "pkg:npm/path-to-regexp@0.1.7": {
+      "uuid": "22028842-fc6d-4af0-a939-6be3019f3235",
+      "exportedAt": "Wed, 07 Jan 2026 22:25:03 GMT",
+      "files": {
+        "package/index.js": {
+          "beforeHash": "06731ab0f68cfca6b5cd1478d99ac328d10ec06df83b8a0b15e93004f5c421cc",
+          "afterHash": "20fb2467ac96dc596d481f11c463d8061b6e2f3488f3311314db156939b17189"
+        }
+      },
+      "vulnerabilities": {
+        "GHSA-rhx6-c78j-4q9w": {
+          "cves": [
+            "CVE-2024-52798"
+          ],
+          "summary": "path-to-regexp contains a ReDoS",
+          "severity": "HIGH",
+          "description": "### Impact\n\nThe regular expression that is vulnerable to backtracking can be generated in versions before 0.1.12 of `path-to-regexp`, originally reported in CVE-2024-45296\n\n### Patches\n\nUpgrade to 0.1.12.\n\n### Workarounds\n\nAvoid using two parameters within a single path segment, when the separator is not `.` (e.g. no `/:a-:b`). Alternatively, you can define the regex used for both parameters and ensure they do not overlap to allow backtracking.\n\n### References\n\n- https://github.com/advisories/GHSA-9wv6-86v2-598j\n- https://blakeembrey.com/posts/2024-09-web-redos/"
+        }
+      },
+      "description": "",
+      "license": "MIT",
+      "tier": "free"
+    }
+  }
+}
